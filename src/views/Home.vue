@@ -1,13 +1,27 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="page home">
+    <img src="@/assets/heart.gif" alt="快姻缘">
+    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
+    <div class="btn">
+      <md-button type="default" @click="go('info')">填写/修改信息</md-button>
+      <!-- <md-button type="default" inactive>Default Inactive</md-button> -->
+      <md-button type="warning" @click="go('show')">遇见有缘人</md-button>
+      <!-- <md-button type="primary" inactive>推荐给朋友</md-button> -->
+      <!-- <md-button type="warning">Warning</md-button>
+      <md-button type="warning" inactive>Warning Inactive</md-button> -->
+      <!-- <md-button type="disabled">关于我们</md-button> -->
+    </div>
+    <div class="about">
+      <div class="al" @click="go('about')">关于我们</div>
+      <div class="ar" @click="go('share')">推荐给朋友</div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
-import { ActionBar, Toast } from 'mand-mobile'
+// import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import { Button } from 'mand-mobile'
 import axios from 'axios'
 
 interface LabelledValue {
@@ -34,22 +48,23 @@ enum Direction {
 
 @Component({
   components: {
-    HelloWorld,
-    [ActionBar.name]: ActionBar
+    [Button.name]: Button
+    // HelloWorld,
+    // [ActionBar.name]: ActionBar
   }
 })
 export default class Home extends Vue {
   msg: string = 'hello world!'
-  data: LabelledValue[] = [
-    {
-      text: '操作一',
-      onClick: (): void => { Toast.succeed('Click') }
-    },
-    {
-      text: '操作二',
-      onClick: (): void => { Toast.succeed('Click2') }
-    }
-  ]
+  // data: LabelledValue[] = [
+  //   {
+  //     text: '操作一',
+  //     onClick: (): void => { }
+  //   },
+  //   {
+  //     text: '操作二',
+  //     onClick: (): void => { }
+  //   }
+  // ]
   getCounter (): Counter {
     let counter = <Counter> function (start: number) {
       console.log(start)
@@ -67,7 +82,6 @@ export default class Home extends Vue {
   }
   created (): void {
     console.log('hhhhhhh')
-    console.log(this.data[0].text = 'hello111')
     console.log(this.dosomething(1, (res, d) => {
       return 'ok'
     }))
@@ -88,5 +102,38 @@ export default class Home extends Vue {
   dosomething (id: number, callback: someFunction): boolean {
     return true
   }
+
+  go (url: string) : void {
+    this.$router.push(url)
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+img{
+  max-width: 100%;
+}
+.btn{
+  padding: 10px;
+  button {
+    margin-bottom: 10px;
+  }
+}
+.home{
+  background: #fde5fd;
+}
+.about{
+  display: flex;
+  margin: 15px 30px;
+  div{
+    flex: 1;
+    font-size: 14px;
+    &:first-child{
+      text-align: left;
+    }
+    &:last-child{
+      text-align: right;
+    }
+  }
+}
+</style>

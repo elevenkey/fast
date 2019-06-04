@@ -5808,10 +5808,10 @@ make-dir@^1.0.0:
   dependencies:
     pify "^3.0.0"
 
-mand-mobile@^1.6.8:
-  version "1.6.8"
-  resolved "http://registry.npm.taobao.org/mand-mobile/download/mand-mobile-1.6.8.tgz#d511a231c252433bf50c1af1304cf8713a6055ee"
-  integrity sha1-1RGiMcJSQzv1DBrxMEz4cTpgVe4=
+mand-mobile@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.npm.taobao.org/mand-mobile/download/mand-mobile-2.2.4.tgz#656635af8c678051aaa164cb1a2326c981b58d87"
+  integrity sha1-ZWY1r4xngFGqoWTLGiMmyYG1jYc=
 
 map-age-cleaner@^0.1.1:
   version "0.1.3"
