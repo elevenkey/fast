@@ -2,8 +2,11 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   // 选项...
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/fast/'
+    : '/',
   outputDir: 'dist',
-  assetsDir: 'fast/static',
+  assetsDir: 'static',
   productionSourceMap: false,
   configureWebpack: config => {
     let plugins = [
