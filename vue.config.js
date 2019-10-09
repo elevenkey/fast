@@ -3,7 +3,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
   // 选项...
   outputDir: 'dist',
-  assetsDir: 'static',
+  assetsDir: 'fast/static',
   productionSourceMap: false,
   configureWebpack: config => {
     let plugins = [
